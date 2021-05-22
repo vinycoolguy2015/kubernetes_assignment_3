@@ -10,7 +10,7 @@ pipeline {
         
         stage('Build Docker Image') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                 script {
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Push Docker Image') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                 script {
@@ -33,14 +33,7 @@ pipeline {
             }
         }
         
-        stage('Deployment') {
-            when {
-                branch 'master'
-            }
-            steps {
-                sh '/usr/local/bin/helm upgrade --install guestbook ./guestbook-deployment --namespace development --set image.tag="${BUILD_NUMBER}"'
-            }
-        }
+        
        
     }
 }
