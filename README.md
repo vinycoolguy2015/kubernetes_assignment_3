@@ -1,1 +1,0 @@
-# kubernetes_assignment_3
